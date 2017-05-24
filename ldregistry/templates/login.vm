@@ -3,14 +3,21 @@
 
 #set($pageTitle="Registry login")
 
-#parse("header.vm")
-#parse("navbar.vm")
+#parse("structure/_preamble.vm")
 
 #set($provider=false)
 #foreach($cookie in $request.cookies)
   #if($cookie.name == "ukgovld-login-provider")
     #set($provider=$cookie.value)
   #end
+#end
+
+#if( $registry.configExtensions.loginMaster )
+    #set( $lroot = $registry.configExtensions.loginMaster )
+    #set( $base = "${request.scheme}://${request.serverName}${root}" )
+    #set( $return = $return.replace($base, $registry.configExtensions.loginMaster ) )
+#else
+    #set( $lroot = $root )
 #end
 
 <div class="modal-page container">
@@ -25,7 +32,7 @@
 
         <div class="row space-above">
         
-          <div class="col-md-5 blob pale-blue">
+          <div class="#if($registry.configExtensions.passwordLoginOnly) col-md-offset-2 #end col-md-5 blob-password">
             <div class="blob-inner">
               <div class="row">
                 <div class="col-md-12">
@@ -34,7 +41,7 @@
               </div>
               #if(!$registry.configExtensions.suppressPasswordLogin)
               <div class="row">
-                <form class="form-horizontal" role="form"  action="$root/system/security/pwlogin" method="post">
+                <form class="form-horizontal" role="form"  action="$lroot/system/security/pwlogin" method="post">
                   <div class="form-group">
                     <label for="userid1" class="col-md-offset-1 col-md-2 control-label">Username</label>
                     <div class="col-md-8">
@@ -56,9 +63,10 @@
                 </form>
               </div>
               #end
+              #if( ! $registry.configExtensions.passwordLoginOnly )
               <div class="row space-above">
                 <div class="col-md-12">
-                  <form class="form-horizontal" action="$root/system/security/loginoa" method="post">
+                  <form class="form-horizontal" action="$lroot/system/security/loginoa" method="post">
                     #if(!$registry.configExtensions.suppressPasswordLogin)
                     <p>Or login via a registered Google G+ account</p>
                     #end
@@ -70,15 +78,17 @@
                   </form>
                 </div>
               </div>
+              #end
             </div>
           </div>
         
-          <div class="col-md-5 col-md-offset-1 blob pale-orange">
+          #if( ! $registry.configExtensions.passwordLoginOnly )
+          <div class="col-md-5 col-md-offset-1 blob-oauth">
             <div class="blob-inner">
               <h2>Register as a new user</h2>
               #if( ! $registry.configExtensions.suppressPasswordLogin)
               <div class="row">
-                <form class="form-horizontal" role="form"  action="$root/system/security/pwregister" method="post">
+                <form class="form-horizontal" role="form"  action="$lroot/system/security/pwregister" method="post">
                   <div class="form-group">
                     <label for="userid2" class="col-md-offset-1 col-md-2 control-label">Username</label>
                     <div class="col-md-8">
@@ -108,7 +118,7 @@
               #end
               <div class="row space-above">
                 <div class="col-md-12">
-                  <form class="form-horizontal" action="$root/system/security/registeroa" method="post">
+                  <form class="form-horizontal" action="$lroot/system/security/registeroa" method="post">
                     #if(!$registry.configExtensions.suppressPasswordLogin)
                     <p>Or authorize via a Google G+ account</p>
                     #end
@@ -122,7 +132,7 @@
               </div>
             </div>
           </div>
-        
+          #end
         </div>
         
         <div class="row space-above">
@@ -137,7 +147,7 @@
       <div class="modal-page-footer">
         <div class="row">
           <div class="col-md-offset-10 col-md-1">
-            <a href="#if($return)$root$return#else$root#end" class="btn">Close</a>
+            <a href="#if($return)$return#else$root#end" class="btn">Close</a>
           </div>
         </div>
       </div>
@@ -146,5 +156,4 @@
   
   <div class="modal-backdrop in"></div>
 
-#parse("footer.vm")
-
+#parse("structure/_footer.vm")

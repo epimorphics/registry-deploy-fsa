@@ -6,13 +6,14 @@
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix void: <http://rdfs.org/ns/void#> .
 @prefix reg:  <http://purl.org/linked-data/registry#> .
-@prefix er-ui:  <http://environment.data.gov.uk/registry/structure/ui/> .
-@prefix er-cat:  <http://environment.data.gov.uk/registry/structure/category/> .
-@prefix er-org:  <http://environment.data.gov.uk/registry/structure/org/> .
-@prefix er-entity:  <http://environment.data.gov.uk/registry/structure/entity-type/> .
+
+@prefix fr-ui:      <http://data.food.gov.uk/codes/structure/ui/> .
+@prefix fr-cat:     <http://data.food.gov.uk/codes/structure/category/> .
+@prefix fr-org:     <http://data.food.gov.uk/codes/structure/org/> .
+@prefix fr-entity:  <http://data.food.gov.uk/codes/structure/entity-type/> .
 
 <bulkCollectionTypes> a reg:Register;
     rdfs:label "bulk collection types"@en;
     dct:description "System register describing the data types which can be uploaded as bulk collections"@en;
-    reg:category  er-cat:System;
+    reg:category  fr-cat:System;
     .

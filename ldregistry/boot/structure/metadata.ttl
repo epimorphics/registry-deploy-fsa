@@ -13,15 +13,16 @@
 @prefix void: <http://rdfs.org/ns/void#> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix reg:  <http://purl.org/linked-data/registry#> .
-@prefix er-ui:  <http://environment.data.gov.uk/registry/structure/ui/> .
-@prefix er-cat:  <http://environment.data.gov.uk/registry/structure/category/> .
-@prefix er-org:  <http://environment.data.gov.uk/registry/structure/org/> .
-@prefix er-entity:  <http://environment.data.gov.uk/registry/structure/entity-type/> .
+
+@prefix fr-ui:      <http://data.food.gov.uk/codes/structure/ui/> .
+@prefix fr-cat:     <http://data.food.gov.uk/codes/structure/category/> .
+@prefix fr-org:     <http://data.food.gov.uk/codes/structure/org/> .
+@prefix fr-entity:  <http://data.food.gov.uk/codes/structure/entity-type/> .
 
 <structure> a reg:Register;
     rdfs:label "Structure"@en;
-    dct:description "Code lists used to aid organizing and presenting the Environment registry contents."@en;
+    dct:description "Code lists used to aid organizing and presenting the Food Standards Agency Codes registry contents."@en;
     reg:containedItemClass reg:Register;
-    reg:owner     er-org:department-for-environment-food-rural-affairs ;
-    reg:category  er-cat:System;
+    reg:owner     fr-org:food-standards-agency ;
+    reg:category  fr-cat:System;
     .

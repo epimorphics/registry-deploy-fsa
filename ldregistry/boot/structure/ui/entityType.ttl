@@ -7,10 +7,14 @@
 
 @prefix reg:  <http://purl.org/linked-data/registry#> .
 @prefix facet:   <http://www.epimorphics.com/ontologies/facet#> .
-@prefix er-ui:      <http://environment.data.gov.uk/registry/structure/ui/> .
 
-er-ui:entityType a owl:ObjectProperty;
+@prefix fr-ui:      <http://data.food.gov.uk/codes/structure/ui/> .
+@prefix fr-cat:     <http://data.food.gov.uk/codes/structure/category/> .
+@prefix fr-org:     <http://data.food.gov.uk/codes/structure/org/> .
+@prefix fr-entity:  <http://data.food.gov.uk/codes/structure/entity-type/> .
+
+
+fr-ui:entityType a owl:ObjectProperty;
     rdfs:label "category - Entity Type"@en;
     rdfs:description "Property use to categorize the type of entity a code list describes"@en;
     .
-
