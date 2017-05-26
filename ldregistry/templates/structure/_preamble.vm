@@ -6,5 +6,5 @@
 
 #parse("structure/_header.vm")
 #parse("nav/_navbar.vm")
-<div class='container' id="main">
-#parse("structure/_service-bar.vm")
+<main class='wrapper content'>
+  <div class="col-wrap wrapper content container">

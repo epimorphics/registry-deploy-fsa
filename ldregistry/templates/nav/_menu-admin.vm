@@ -1,8 +1,9 @@
 ## Render the "Admin" menu within the navigation bar
 
 #set($user=$subject.principal)
-<li #if($nav=="admin")class="active"#end class="dropdown">
-    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Admin <b class="caret"></b></a>
+
+<li #if($nav=="admin")class="active"#end class="primary-nav__item mega-menu__l1">
+    <a href="#" class="primary-nav__link dropdown-toggle" data-toggle="dropdown">Admin <b class="caret"></b></a>
     <ul class="dropdown-menu">
         <li><a  href="$uiroot/view-permissions">View permissions</a></li>
 
@@ -17,7 +18,7 @@
             <li><a  href="$uiroot/backups">Backups</a></li>
             <li><a  href="$uiroot/text-reindex">Rebuild text index</a></li>
         #end
-        
+
         <li role="separator" class="divider"></li>
         <li><a  href="#logout-dialog" role="button" data-toggle="modal">Logout</a></li>
     </ul>

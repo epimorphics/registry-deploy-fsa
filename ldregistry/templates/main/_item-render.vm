@@ -16,10 +16,10 @@
 #set( $isAdministrator = $lib.reg.isPermitted("Grant", $uri) )
 
 <div class="row">
-  <div class="col-md-10">
+  <div class="col-md-9">
     #parse( "main/_breadcrumbs.vm" )
   </div>
-  <div class="col-md-offset-1 col-md-1">
+  <div class="col-md-offset-1 col-md-2 breadcrumbs-status">
     #showstatus( $item.getPropertyValue("reg:status") )
   </div>
 </div>
