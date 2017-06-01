@@ -18,9 +18,10 @@
 @prefix reg:  <http://purl.org/linked-data/registry#> .
 @prefix ui:   <http://purl.org/linked-data/registry-ui#> .
 @prefix qb:      <http://purl.org/linked-data/cube#> .
-@prefix org:  <http://www.w3.org/ns/org#> .
-@prefix odrs: <http://schema.theodi.org/odrs#> .
-@prefix def-foodtype: <http://data.food.gov.uk/codes/foodtype/def/> .
+@prefix org:            <http://www.w3.org/ns/org#> .
+@prefix odrs:           <http://schema.theodi.org/odrs#> .
+@prefix def-foodtype:   <http://data.food.gov.uk/codes/foodtype/def/> .
+@prefix terms-foodtype: <http://data.food.gov.uk/codes/foodtype/def/terms/>
 
 <_dc> a reg:RegisterItem;
     rdfs:label "dc"@en;
@@ -383,13 +384,24 @@ odrs: a owl:Ontology;
     .
 
 <_def-foodtype> a reg:RegisterItem;
-        reg:status reg:statusStable;
+        reg:status reg:statusExperimental;
         reg:definition [ reg:entity def-foodtype: ];
         .
 
 def-foodtype: a owl:Ontology;
         rdfs:label "def-foodtype"@en;
-        dct:description "Foodtype code suppoprting vocabublary registration"@en;
+        dct:description "Food-type supporting definitions."@en;
         vann:preferredNamespacePrefix "def-foodtype";
         vann:preferredNamespaceUri "http://data.food.gov.uk/codes/foodtype/def/" ;
         .
+
+<_terms-foodtype> a reg:RegisterItem;
+                reg:status reg:statusExperimental;
+                reg:definition [ reg:entity terms-foodtype: ];
+                .
+terms-foodtype: a owl:Ontology;
+                rdfs:label "terms-foodtype"@en;
+                dct:description "Food-type suppoprting vocabulary registration"@en;
+                vann:preferredNamespacePrefix "terms-foodtype";
+                vann:preferredNamespaceUri "http://data.food.gov.uk/codes/foodtype/def/terms/" ;
+                .
