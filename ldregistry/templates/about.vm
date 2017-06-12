@@ -6,7 +6,8 @@
       </div>
     </div>
 
-    <p>This is a pilot service to provide management and public access to codes and codelists used by the Defra family of organizations.</p>
+
+    <p>This is an alpha service to provide management and public access to codes and codelists used by the the Food Standards Agency in developing and referencing our open data standards.</p>
 
     <p>It is based on the UKGovLD <a href="https://github.com/UKGovLD/registry-core/wiki"> design</a> for a Linked Data registry.</p>
 
