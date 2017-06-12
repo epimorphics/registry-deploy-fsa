@@ -16805,6 +16805,9 @@ li.c-dataset-nav-keyword {
   padding: 2px 5px 0;
   font-size: 14px; }
 
+.main-logo {
+  float: none; }
+
 .wrapper {
   overflow: visible; }
 
@@ -16895,5 +16898,3 @@ footer {
 
 .modal-dialog {
   visibility: visible; }
-
-/*# sourceMappingURL=reg-style.css.map */
