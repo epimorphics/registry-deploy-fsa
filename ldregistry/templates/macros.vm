@@ -144,7 +144,11 @@
     <tbody>
       #foreach($pv in $res.listProperties())
         <tr>
+          #if ($pv.getProp().uRI.startsWith($registry.baseURI) )
+          <td class="align-right span2"> <strong title="$pv.getProp().uRI"><a href="#linkhrefInt($pv.getProp())">$pv.getProp().name</a></strong> </td>
+          #else
           <td class="align-right span2"> <strong title="$pv.getProp().uRI">$pv.getProp().name</strong> </td>
+          #end
           <td>
             #foreach($v in $pv.getValues())
               #if($v.isList())
