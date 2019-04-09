@@ -29,6 +29,14 @@
     <h2>#if($register)Register: #{else}Entry: #end $entity.name #if($versionNumber)- showing version $versionNumber#end</h2>
     <p>  <strong>URI:</strong> <a href="#linkhref($entity)" title="$entity.uRI">$entity.uRI</a> </p>
     <p> #description($entity, "<p><em>no description supplied</em></p>") </p>
+    #if($entity.getPropertyValue("reg:note"))
+      <h3>Notes</h3>
+      #if($entity.getPropertyValue("reg:note").getDatatype().getURI() == "http://data.food.gov.uk/codes/regulated-products/def/fsarp/preformat$
+        <pre>$entity.getPropertyValue("reg:note").getLexicalForm()</pre>
+      #else
+        <p>$entity.getPropertyValue("reg:note").getLexicalForm()</p>
+      #end
+    #end    
   </div>
   <div id="metadata-pane" class="col-md-5 hide">
     <div class="tab-content" id="metadata-content">
