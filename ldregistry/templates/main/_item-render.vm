@@ -31,7 +31,7 @@
     <p> #description($entity, "<p><em>no description supplied</em></p>") </p>
     #if($entity.getPropertyValue("reg:note"))
       <h3>Notes</h3>
-      #if($entity.getPropertyValue("reg:note").getDatatype().getURI() == "http://data.food.gov.uk/codes/regulated-products/def/fsarp/preformat$
+      #if($entity.getPropertyValue("reg:note").getDatatype().getURI() == "http://data.food.gov.uk/codes/regulated-products/def/fsarp/preformatted-text")
         <pre>$entity.getPropertyValue("reg:note").getLexicalForm()</pre>
       #else
         <p>$entity.getPropertyValue("reg:note").getLexicalForm()</p>
